@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import auth from "./authSlice/authSlice";
+import Loading from "./LoadingSlice/LoadingSlice";
 const store = configureStore({
   reducer: {
-    auth,
+    Loading,
   },
 });
 export default store;

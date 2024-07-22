@@ -1,3 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global */
+.container {
+  @apply px-[10px] lg:px-[30px] max-w-7xl;
+}
+body {
+  font-family: "Cairo", "Josefin Sans", "Roboto", "Almarai", sans-serif;
+  color: #232323;
+}
+.circle-W-30 {
+  @apply w-[30px] h-[30px] rounded-full cursor-pointer transition-colors duration-300 flex items-center justify-center;
+}
+/* Global */
+.header-link {
+  text-decoration: none;
+  @apply px-3  hover:text-appColor transition-colors duration-300 cursor-pointer select-none py-5;
+}
