@@ -12,14 +12,11 @@ function ProductCard({ title, price, description, image, rating, id }) {
             <div onClick={() => {
                 const cartData = JSON.parse(localStorage.getItem("cart")) ?? []
                 const findMyProduct = cartData.find(item => item.id === id)
-                console.log(cartData,findMyProduct)
                 toast.success("Product added to cart")
                 let newCart = []
-                console.log(findMyProduct)
                 if (findMyProduct) {
                     newCart = cartData.map(item => item.id === id ? { ...item, quantity: item.quantity + 1 } : item)
                 } else {
-                    console.log(2)
                     newCart = [...cartData, { id, quantity: 1 }]
                 }
                 localStorage.setItem("cart", JSON.stringify(newCart))

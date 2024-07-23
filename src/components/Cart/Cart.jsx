@@ -33,8 +33,8 @@ function Cart({ setOpen, open }) {
     }, [data, cartState])
     return (
         <Drawer onClose={() => setOpen(false)} open={open}>
-            <div className="pb-2 || relative h-[100dvh] || max-w-[600px] || overflow-auto">
-                <div className="flex px-4 z-10 || shadow-xl || sticky || top-0 ||  py-4 || mb-2 || items-center || justify-between || gap-3 || bg-[#344290]">
+            <div className="pb-2 || relative h-[100dvh] flex flex-col || max-w-[600px] || overflow-auto">
+                <div className="flex   px-4 z-10 || shadow-xl || sticky || top-0 ||  py-4 || mb-2 || items-center || justify-between || gap-3 || bg-[#344290]">
                     <h2 className="text-2xl -mb-1  || text-white || font-bold || text-center || ElMessiri">
                         Cart
                     </h2>
@@ -45,10 +45,10 @@ function Cart({ setOpen, open }) {
                         <IoMdClose className="text-white text-xl" />
                     </button>
                 </div>
-                <div className="px-4 || pt-5">
-                    <div>
+                <div className="px-4 || pt-5 flex-1 ">
+                    <div className='h-full flex flex-col relative'>
                         {cart.length === 0 ?
-                            <div className="h-[calc(100dvh-105px-40px)] w-[250px] md:min-w-[300px]  px-2 || flex || items-center || justify-center">
+                            <div className=" h-full w-[250px] md:min-w-[300px]  px-2 || flex || items-center || justify-center">
                                 <div className="">
                                     <div className="text-center">
                                         <BsCart3 className="text-7xl || text-gray-400 || mx-auto" />
@@ -62,7 +62,7 @@ function Cart({ setOpen, open }) {
                                 </div>
                             </div> :
                             <>
-                                <div className="h-[calc(100dvh-152px-40px)] scrollStyle overflow-hidden px-2 || overflow-y-auto">
+                                <div className="flex-1  scrollStyle overflow-hidden px-2 || overflow-y-auto">
                                     {cart.map((category, i) => (
                                         <Fragment key={i}>
                                             <div className="flex  gap-2 || border-b || border-slate-200 || pb-3 || mb-3">
@@ -135,7 +135,7 @@ function Cart({ setOpen, open }) {
                                         </Fragment>
                                     ))}
                                 </div>
-                                <div className="">
+                                <div className="sticky bottom-0 bg-white">
                                     <div className="h-[30px] mt-1  border-b   border-slate-200">
                                         <div className="flex px-4  items-center justify-between">
                                             <span className="whitespace-nowrap">
