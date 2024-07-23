@@ -4,15 +4,19 @@ import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 import { Provider } from "react-redux"
 import store from "./Redux/Store"
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify"
+import Product from "./pages/Product"
 
 function App() {
-  console.log(process.env.REACT_APP_API_URL)
   return (
     <BrowserRouter>
       <Provider store={store}>
         <HomeApp>
+          <ToastContainer theme="dark" closeOnClick />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="product/:id" element={<Product />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </HomeApp>

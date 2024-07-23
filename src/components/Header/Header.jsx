@@ -4,10 +4,10 @@ import TopHeader from "../TopHeader/TopHeader"
 
 function Header() {
     return (
-        <header>
+        <header >
             <TopHeader />
             <MainHeader />
-            <BottomHeader/>
+            <BottomHeader />
         </header>
     )
 }
