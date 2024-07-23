@@ -46,7 +46,7 @@ function Cart({ setOpen, open }) {
                     </button>
                 </div>
                 <div className="px-4 || pt-5 flex-1 ">
-                    <div className='h-full flex flex-col relative'>
+                    <div className='h-full  relative'>
                         {cart.length === 0 ?
                             <div className=" h-full w-[250px] md:min-w-[300px]  px-2 || flex || items-center || justify-center">
                                 <div className="">
@@ -62,7 +62,7 @@ function Cart({ setOpen, open }) {
                                 </div>
                             </div> :
                             <>
-                                <div className="flex-1  scrollStyle overflow-hidden px-2 || overflow-y-auto">
+                                <div className=" h-full pb-[96px] scrollStyle overflow-hidden px-2 || overflow-y-auto relative">
                                     {cart.map((category, i) => (
                                         <Fragment key={i}>
                                             <div className="flex  gap-2 || border-b || border-slate-200 || pb-3 || mb-3">
@@ -134,41 +134,41 @@ function Cart({ setOpen, open }) {
                                             </div>
                                         </Fragment>
                                     ))}
-                                </div>
-                                <div className="sticky bottom-0 bg-white">
-                                    <div className="h-[30px] mt-1  border-b   border-slate-200">
-                                        <div className="flex px-4  items-center justify-between">
-                                            <span className="whitespace-nowrap">
-                                                Subtotal
-                                            </span>
+                                    <div className="fixed px-4 py-2 w-full left-0 bottom-0 bg-white">
+                                        <div className="h-[30px] mt-1  border-b   border-slate-200">
+                                            <div className="flex px-4  items-center justify-between">
+                                                <span className="whitespace-nowrap">
+                                                    Subtotal
+                                                </span>
 
-                                            <p className="justify-end w-full || text-mainColor -mt-1  || text-[13px] || font-semibold || price || flex || items-center || gap-1">
-                                                <span className="font-bold">
-                                                    $
-                                                </span>
-                                                <span className="text-[16px] || text-black">
-                                                    {cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
-                                                </span>
-                                            </p>
+                                                <p className="justify-end w-full || text-mainColor -mt-1  || text-[13px] || font-semibold || price || flex || items-center || gap-1">
+                                                    <span className="font-bold">
+                                                        $
+                                                    </span>
+                                                    <span className="text-[16px] || text-black">
+                                                        {cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+                                                    </span>
+                                                </p>
+                                            </div>
                                         </div>
+                                        <button
+                                            onClick={() => {
+                                                setCart([])
+                                                dispatch(SET_CART([]))
+                                                localStorage.removeItem("cart")
+                                                toast.success("Order placed successfully")
+                                                setOpen(false)
+                                            }}
+                                            className="bg-[#344290] hover:bg-[#344290]/80 duration-300 mt-[10px] relative rounded-md  h-[50px] w-full px-4"
+                                        >
+
+                                            <div className="flex items-center justify-center">
+                                                <span className="text-white">
+                                                    Complete
+                                                </span>
+                                            </div>
+                                        </button>
                                     </div>
-                                    <button
-                                        onClick={() => {
-                                            setCart([])
-                                            dispatch(SET_CART([]))
-                                            localStorage.removeItem("cart")
-                                            toast.success("Order placed successfully")
-                                            setOpen(false)
-                                        }}
-                                        className="bg-[#344290] hover:bg-[#344290]/80 duration-300 mt-[10px] relative rounded-md  h-[50px] w-full px-4"
-                                    >
-
-                                        <div className="flex items-center justify-center">
-                                            <span className="text-white">
-                                                Complete
-                                            </span>
-                                        </div>
-                                    </button>
                                 </div>
                             </>
                         }
