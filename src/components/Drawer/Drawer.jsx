@@ -14,7 +14,7 @@ function Drawer({ open, onClose, children }) {
   return (
     <div
       style={{ zIndex: 555555 }}
-      className={`fixed inset-0 bg-drawer  flex justify-end  ${open ? "opacity-100 visible" : "opacity-0 invisible"
+      className={`fixed inset-0  bg-drawer  flex justify-end  ${open ? "opacity-100 visible" : "opacity-0 invisible"
         } duration-200`}
     >
       <div className="fixed inset-0 " onClick={onClose}></div>
@@ -23,7 +23,7 @@ function Drawer({ open, onClose, children }) {
           boxShadow:
             "rgba(0, 0, 0, 0.15) -2.4px -2.4px 3.2px"
         }}
-        className={`drawer_custom   h-screen bg-white relative z-10 ${open
+        className={`drawer_custom   h-[100dvh] bg-white relative z-10 ${open
           ? "translate-x-0"
           : "translate-x-full"
           } duration-300`}
