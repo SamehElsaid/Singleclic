@@ -37,19 +37,13 @@ function BottomHeader() {
           return false
         }
       }
+      document.querySelectorAll(".ProductsView").forEach((item) => {
+        if (isScrolledIntoView(item)) {
+          setInView(item.id)
+        }
+      })
 
-      if (isScrolledIntoView(document.getElementById("jewelery"))) {
-        setInView("jewelery")
-      }
-      if (isScrolledIntoView(document.getElementById("electronics"))) {
-        setInView("electronics")
-      }
-      if (isScrolledIntoView(document.getElementById("men's clothing"))) {
-        setInView("men's clothing")
-      }
-      if (isScrolledIntoView(document.getElementById("women's clothing"))) {
-        setInView("women's clothing")
-      }
+      
 
       if (window.scrollY > 150) {
         setFixed(true)
@@ -75,7 +69,16 @@ function BottomHeader() {
         {data?.map((item) => (
           <ul
             onClick={() => {
-              document.getElementById(item).scrollIntoView({ behavior: "smooth" })
+              if (pathname === "/") {
+                document.getElementById(item).scrollIntoView({ behavior: "smooth" })
+              } else {
+                push(`/`)
+                setTimeout(() => {
+                  if (document.getElementById(item)) {
+                    document.getElementById(item).scrollIntoView({ behavior: "smooth" })
+                  }
+                }, 0)
+              }
             }}
             key={item}
             className={`header-link text-[10px] || sm:text-[13px] || md:text-[18px] ${inView === item ? "active" : ""}`}

@@ -3,6 +3,7 @@ import Header from "../components/Header/Header"
 
 function HomeApp({ children }) {
     const loading = useSelector(state => state.Loading.data)
+    console.log(process.env.REACT_APP_API_URL)
     return (
         <>
             {loading &&
